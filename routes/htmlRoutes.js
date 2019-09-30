@@ -18,6 +18,11 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views", "login.html"));
   });
 
+  app.get("/index", function(req, res) {
+    // If this function gets called, the user alsready has a password
+    res.sendFile(path.join(__dirname, "../views", "index.html"));
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
