@@ -33,19 +33,27 @@
               $.ajax({
 
                   method: 'GET', 
-                  url: '/api/login',
+                  // url: '/api/login',
                   data: {
                       username: $("#username").val(),
                       password: userPassword,
                   }
               }).then(function() {
+                
+                //compare username == db.username && password == db.password) ??
+                if (username == username && password == password){
+    
+                
+                console.log('TEST')
                 //after verif user sb redirected to the index page page
-                if (username == db.username && password == db.password) {
-
-                window.location.href = "/index" 
+                window.location.href = "/index"
+                }else {
+                  colsole.log( "Username and pw dont exist! ")
                 }
+                
               });
+             
           })
       </script>
 </body>
-</html>
+</html> 
