@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div class="container">
+          <h1>Already have an account?</h1>
+          <p>Please enter your username and password:</p>
+          <hr>
+      
+          <label for="username"><b>Username</b></label>
+          <input type="text" id="username" placeholder="Enter Username" name="username" required>
+      
+          <label id = "password" for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button id="submit-btn" type="submit">Submit</button>
+          <hr>
+      
+        
+      </form>
+      <script>
+        // in here the username and pw that user input should be compared to what we have in DB 
+          $("#submit-btn").on('click', function(evt) {
+            evt.preventDefault();
+              var userPassword = $("#password").val();
+              $.ajax({
+
+                  method: 'GET', 
+                  url: '/api/login',
+                  data: {
+                      username: $("#username").val(),
+                      password: userPassword,
+                  }
+              }).then(function() {
+                //after verif user sb redirected to the index page page
+                if (username == db.username && password == db.password) {
+
+                window.location.href = "/index" 
+                }
+              });
+          })
+      </script>
+</body>
+</html>

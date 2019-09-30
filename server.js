@@ -1,16 +1,27 @@
+/* eslint-disable quotes */
 require("dotenv").config();
 var express = require("express");
+var session = require("express-session");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.set("trust proxy", 1); // trust first proxy
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  })
+);
 
 // Handlebars
 app.engine(
@@ -29,8 +40,8 @@ var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
+if (process.env.NODE_ENV !== "production") {
+  //syncOptions.force = true;
 }
 
 // Starting the server, syncing our models ------------------------------------/

@@ -1,5 +1,6 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS blackBookApp;
+CREATE DATABASE blackBookApp;
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+USE blackBookApp;
+
+
