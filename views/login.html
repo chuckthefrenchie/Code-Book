@@ -17,8 +17,8 @@
           <label for="username"><b>Username</b></label>
           <input type="text" id="username" placeholder="Enter Username" name="username" required>
       
-          <label id = "password" for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <label for="psw"><b>Password</b></label>
+          <input id = "password" type="password" placeholder="Enter Password" name="psw" required>
       
           <button id="submit-btn" type="submit">Submit</button>
           <hr>
@@ -26,33 +26,32 @@
         
       </form>
       <script>
-        // in here the username and pw that user input should be compared to what we have in DB 
-          $("#submit-btn").on('click', function(evt) {
-            evt.preventDefault();
+       
+          $("#submit-btn").on("click", function(evt) {
+              evt.preventDefault();
               var userPassword = $("#password").val();
+              var userName = $("#username").val();
+              // console.log(userPassword);
               $.ajax({
-
-                  method: 'GET', 
-                  // url: '/api/login',
+                  method: 'POST', 
+                  url: '/api/login',
                   data: {
-                      username: $("#username").val(),
+                      username: userName,
                       password: userPassword,
                   }
-              }).then(function() {
                 
-                //compare username == db.username && password == db.password) ??
-                if (username == username && password == password){
-    
-                
-                console.log('TEST')
-                //after verif user sb redirected to the index page page
-                window.location.href = "/index"
-                }else {
-                  colsole.log( "Username and pw dont exist! ")
+              })
+              .then(function(response) {
+                console.log(response);
+                console.log('TEST');
+                if (response.success) {
+                  window.location.assign("/index");
                 }
-                
+              })
+              .catch(function(e) {
+                console.error(e, 'Wrong username or password');
               });
-             
+
           })
       </script>
 </body>
