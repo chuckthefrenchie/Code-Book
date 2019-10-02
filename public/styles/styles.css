@@ -1,3 +1,248 @@
-.list-group-item {
-  line-height: 2.5;
+html, body, textarea {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
 }
+
+textarea, input, h2 {
+  font-family: 'Quicksand', sans-serif;
+  /* color: rgb(182, 180, 180);
+  font-size: 20px; */
+}
+
+h2 {
+  color: rgb(136, 132, 132);
+  font-size: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 7fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+/* -------- ICONS -------- */
+
+.icons {
+  grid-column: 1;
+  grid-row: 1/5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.circle {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid rgb(165, 157, 157);
+  margin-top: 50px;
+  position: relative;
+}
+
+/* -------- TITLES -------- */
+
+.items-input {
+  border: none;
+  border-bottom:1px solid lightgrey;
+  width: 100%;
+  height: 4em;
+  resize: none; 
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+}
+
+.titles {
+  height: 100%;
+  width: 100%;
+  grid-column: 2;
+  grid-row: 1 / 5;
+  overflow: auto;
+}
+
+.items {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 15px;
+}
+
+.items input {
+  width: 100%;
+  border-bottom: solid;
+  border-color: rgb(235, 225, 225);
+  border-width: .5px;
+  height: 5em;
+  border-right: none;
+  border-left: none;
+}
+
+.notes-nav {
+  border: none;
+  padding: 10px;
+}
+
+#title-name {
+  font-size: 16px;
+  border: none;
+  margin-left: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+/* -------- TEXT AREA -------- */
+
+#title-name {
+  font-size: 24px;
+  width: 100%;
+  height: 2em;
+  text-decoration: none;
+  margin-left: 65px;
+  margin-top: 10px;
+}
+
+.notes {
+  height: 75%;
+  width: 90%;
+  grid-column: 3;
+  grid-row: 1 / 5;
+  position: relative;
+  /* border: solid; */
+  /* box-sizing: border-box; */
+  /* border-width: .5px; */
+}
+
+/* ::-webkit-input-placeholder {
+  color: rgb(182, 180, 180);
+  font-size: 20px;
+} */
+
+#write-notes {
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  margin-left: 68px;
+  margin-top: 5px;
+}
+
+.done-div {
+  grid-column: 3;
+  grid-row: 2 / 3;
+}
+
+hr {
+   margin-left: 55px;
+}
+
+/* Landing Page */
+
+.landing-page-container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+.right, .left{
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+
+.right a {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.left h3 {
+  /* font-family: 'Quicksand', sans-serif; */
+  font-family: 'Bershire Swash', sans-serif;
+  color: rgb(214, 212, 98);
+  text-align: center;
+  font-size: 24px;
+  font-weight: lighter;
+  /* margin-bottom: 10px; */
+  background-color: #021e63;
+}
+
+img {
+  width: 650px;
+  height: auto;
+}
+
+.landing-page-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+}
+
+.sign-up, .log-in {
+  padding: 10px;
+  font-size: 24px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+.landing-page-background {
+  background-color: black;
+}
+
+.save-button {
+  padding: 7px;
+  font-size: 18px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  position: fixed;
+  right: 100px;
+  top: 15px;
+}
+
+.update-button {
+  padding: 7px;
+  font-size: 18px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  position: fixed;
+  right: 60px;
+  top: 15px;
+}
+
+
+
+
+/* Sign up Sheet */
+
