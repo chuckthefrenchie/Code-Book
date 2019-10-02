@@ -18,9 +18,28 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views", "login.html"));
   });
 
+  app.get("/logout", function(req, res) {
+    req.session.destroy();
+    res.redirect("/");
+  });
+
   app.get("/index", function(req, res) {
-    // If this function gets called, the user alsready has a password
-    res.sendFile(path.join(__dirname, "../views", "index.html"));
+    res.header("Cache-Control", "private, no-cache, no-store, must-revalidate");
+    res.header("Expires", "-1");
+    res.header("Pragma", "no-cache");
+    req.session.reload(function(err) {
+      if (err) {
+        console.error(err);
+      }
+      // session updated
+      console.info(req.session.user);
+      if (req.session.user) {
+        // If this function gets called, the user alsready has a password
+        res.sendFile(path.join(__dirname, "../views", "index.html"));
+      } else {
+        res.status(401).send();
+      }
+    });
   });
 
   // Render 404 page for any unmatched routes
