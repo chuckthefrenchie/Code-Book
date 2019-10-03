@@ -6,8 +6,6 @@ html, body, textarea {
 
 textarea, input, h2 {
   font-family: 'Quicksand', sans-serif;
-  /* color: rgb(182, 180, 180);
-  font-size: 20px; */
 }
 
 h2 {
@@ -59,7 +57,6 @@ h2 {
 }
 
 .delete-button {
-  /* padding: 7px; */
   font-size: 18px;
   background-color: black;
   color: white;
@@ -141,15 +138,7 @@ textarea:focus {
   grid-column: 3;
   grid-row: 1 / 5;
   position: relative;
-  /* border: solid; */
-  /* box-sizing: border-box; */
-  /* border-width: .5px; */
 }
-
-/* ::-webkit-input-placeholder {
-  color: rgb(182, 180, 180);
-  font-size: 20px;
-} */
 
 #write-notes {
   font-size: 16px;
@@ -196,13 +185,11 @@ hr {
 }
 
 .left h3 {
-  /* font-family: 'Quicksand', sans-serif; */
   font-family: 'Bershire Swash', sans-serif;
   color: rgb(214, 212, 98);
   text-align: center;
   font-size: 24px;
   font-weight: lighter;
-  /* margin-bottom: 10px; */
   background-color: #021e63;
 }
 
@@ -251,8 +238,6 @@ img {
   right: 60px;
   top: 15px;
 }
-
-
 
 
 /* Sign up Sheet */
