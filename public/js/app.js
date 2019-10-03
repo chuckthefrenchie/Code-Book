@@ -1,18 +1,7 @@
 $(document).ready(function () {
 
     //all notes get pushed into here
-    let notes = [{
-        title: "test",
-        content: ""
-    },
-    {
-        title: "test",
-        content: ""
-    },
-    {
-        title: "test",
-        content: ""
-    }];
+    let notes = []
 
     //the value of the notes in the editor
     let currentIndex = null;
@@ -28,36 +17,22 @@ $(document).ready(function () {
         backButton();
     });
 
-    $(document).on("click", ".back-button", function () {
-        $(".add-note-button").show();
-        $(".back-button").hide();
-        $(".titles").show();
-        slideRight();
-    })
-
     $(document).on("click", ".delete-button", function() {
-    
-        const index = $(this).data("index");
-        currentIndex = index;
-
-        var title = $("#title-name").val();
-        var content = $("#write-notes").val();
-
-        $("#title-name").splice(notes[index].title, 1);
-        // $("#write-notes").val(notes[index].content);
-
-       
-    
-
-  
-
-
-
-  renderNotes();
-
-    
-
+        notes.splice(currentIndex, 1);
+        renderNotes(); 
+        clearValue(); 
     })
+    
+    $(document).on("click", ".back-button", function () {
+        backButtonandSave();
+    })
+    
+    $(document).on("click", ".add-code-button", function () {
+       $(".notes").hide();
+       
+    })
+
+
 
     function renderNotes() {
         $(".items").html("");
@@ -66,6 +41,7 @@ $(document).ready(function () {
         }
     }
 
+    //updating the notes
     function renderNoteEditor() {
       
 
@@ -78,9 +54,7 @@ $(document).ready(function () {
 
         var title = $("#title-name").val();
         var content = $("#write-notes").val();
-        console.log(title);
-        console.log(content);
-
+     
         const note = {
             title,
             content
@@ -89,18 +63,16 @@ $(document).ready(function () {
         notes.push(note);
 
         renderNotes();
-
-        $("#title-name").val("");
-        $("#write-notes").val("");
+        backButtonandSave(); 
+        clearValue();    
     })
    
-
     //Title and Name show up again after being clicked
-
     $(document).on("click", ".items-input", function () {
       
         const index = $(this).data("index");
         currentIndex = index;
+        console.log("second check" + index)
        
         $("#title-name").val(notes[index].title);
         $("#write-notes").val(notes[index].content);
@@ -108,11 +80,21 @@ $(document).ready(function () {
 
        renderNoteEditor();
     });
-    
-
 });
  
     // Functions
+    function backButtonandSave() {
+        $(".add-note-button").show();
+        $(".back-button").hide();
+        $(".titles").show();
+        slideRight();
+    }
+    
+    function clearValue() {
+        $("#title-name").val("");
+        $("#write-notes").val("");
+    }
+
     function backButton() {
         $(".back-button").show();
     };
