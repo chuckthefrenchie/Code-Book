@@ -2,59 +2,56 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <!-- Font Awesome/ Google Font -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Quicksand&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/styles/styles.css">
-  
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Font Awesome/ Google Font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Quicksand&display=swap" rel="stylesheet">
 
-  <title>Black Book</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <title>Black Book</title>
 
 </head>
 
 <body>
- 
-  <div class="container">
-      <div class="app-container">
-        <div class="icons">  
-          <button class="circle back-button" ><i class="fa fa-arrow-left fa-md"></i></button>
-          <button class="circle add-note-button" ><i class="fa fa-plus fa-lg"></i></button>
-          <button class= "circle add-code-button" ><i class="fa fa-code fa-lg"></i></button>
-          <!-- <button class= "circle search-button"><i class="fa fa-search fa-lg"></i></button> -->
+
+    <div class="container">
+        <div class="app-container">
+            <div class="icons">
+                <button class="circle back-button"><i class="fa fa-arrow-left fa-md"></i></button>
+                <button class="circle add-note-button"><i class="fa fa-plus fa-lg"></i></button>
+                <button class="circle add-code-button"><i class="fa fa-code fa-lg"></i></button>
+                <!-- <button class= "circle search-button"><i class="fa fa-search fa-lg"></i></button> -->
+            </div>
+
+            <div class="titles">
+                <div class="itemsWrapper">
+                    <h2 class="notes-nav">NOTES</h2>
+                    <ul class="items"></ul>
+                </div>
+            </div>
+
+            <div class="notes">
+                <input type="text" placeholder="TITLE NAME" id="title-name">
+                <a class="save-button" href="#">SAVE</a>
+                
+                <button class="circle delete-button"><i class="fa fa-trash fa-lg"></i></button>
+
+                <hr>
+                <textarea placeholder="Write notes here" id="write-notes"></textarea>
+            </div>
         </div>
-
-        <div class="titles">
-          <div class="itemsWrapper">
-            <h2 class="notes-nav">NOTES</h2>
-            <ul class="items">
-
-                <!-- <li><textarea class="items-input" id="note-1"></textarea></li>            -->
-            </ul>
-          </div>
-      </div>
-
-        <div class="notes">
-          <input type="text" placeholder="TITLE NAME" id="title-name">
-          <a class="save-button" href="#">SAVE</a>
-          <a class="update-button" href="#">SAVE CHANGES</a>
-          <hr>
-          <textarea placeholder="Write notes here" id="write-notes"></textarea>
-          
-        </div>
-      </div>
     </div>
-  </div>
-</div>
 
-<script src="/js/app.js"></script>
+    <script src="/js/app.js"></script>
 
 </body>
+
 </html>

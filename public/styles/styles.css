@@ -58,6 +58,17 @@ h2 {
   position: relative;
 }
 
+.delete-button {
+  /* padding: 7px; */
+  font-size: 18px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  position: fixed;
+  right: 41px;
+  top:-36px;
+}
+
 /* -------- TITLES -------- */
 
 .items-input {

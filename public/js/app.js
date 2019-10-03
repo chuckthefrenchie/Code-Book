@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //all notes get pushed into here
     let notes = [{
         title: "test",
         content: ""
@@ -13,10 +14,12 @@ $(document).ready(function () {
         content: ""
     }];
 
+    //the value of the notes in the editor
     let currentIndex = null;
 
     $(".back-button").hide();
     $(".update-button").hide();
+    $(".delete-button").hide();
 
     $(document).on("click", ".add-note-button", function () {
         $(".add-note-button").hide();
@@ -30,6 +33,30 @@ $(document).ready(function () {
         $(".back-button").hide();
         $(".titles").show();
         slideRight();
+    })
+
+    $(document).on("click", ".delete-button", function() {
+    
+        const index = $(this).data("index");
+        currentIndex = index;
+
+        var title = $("#title-name").val();
+        var content = $("#write-notes").val();
+
+        $("#title-name").splice(notes[index].title, 1);
+        // $("#write-notes").val(notes[index].content);
+
+       
+    
+
+  
+
+
+
+  renderNotes();
+
+    
+
     })
 
     function renderNotes() {
@@ -77,6 +104,7 @@ $(document).ready(function () {
        
         $("#title-name").val(notes[index].title);
         $("#write-notes").val(notes[index].content);
+        $(".delete-button").show();
 
        renderNoteEditor();
     });
