@@ -54,7 +54,30 @@
   </div>
 </div>
 
-<script src="/js/app.js"></script>
+<script src="/js/app.js">
+      
+      $(".save-button").on("click", function(evt) {
+              evt.preventDefault();
+              var userNotes = $(".notes-nav").val();
+              
+              // console.log(userPassword);
+              $.ajax({
+                  method: 'POST', 
+                  url: '/api/save',
+                  data: {
+                      notes: notes // or smth like 
+                  }
+                
+              })
+              .then(function(response) {
+                console.log(response);
+              })
+              .catch(function(e) {
+                console.error(e, 'Wrong username or password');
+              });
+
+          })
+</script>
 
 </body>
 </html>
