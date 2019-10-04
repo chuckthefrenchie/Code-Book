@@ -25,7 +25,7 @@
 
     renderNotes();
     clearValue();
-//   });
+
 
   $(document).on("click", ".back-button", function() {
     backButtonandSave();
@@ -148,12 +148,7 @@
   // }
 // }); // to close document ready function
 
-    function renderNotesEditor() {
-        if (currentIndex) {
-            notes[currentIndex];
-        }
-        renderNotesEditor();
-    }
+
     
  //notes
     $(".save-note-button").on("click", function (event) {
