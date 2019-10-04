@@ -26,10 +26,8 @@
         <div class="app-container">
             <div class="icons">
                 <button class="circle back-button"><i class="fa fa-arrow-left fa-md"></i></button>
-                <button class="circle add-note-button"><i class="fa fa-plus fa-lg"></i></button>
-                <a href="/views/code-snippet.html"><button class="circle add-code-button"><i class="fa fa-code fa-lg"></i></button></a>
-                <!-- <a href="/views/i.html">CLICK HERE</a> -->
-                <!-- <button class= "circle search-button"><i class="fa fa-search fa-lg"></i></button> -->
+                <a href="/index"><button class="circle add-note-button"><i class="fa fa-plus fa-lg"></i></button></a>
+                <a href="/snippet"><button class="circle add-code-button"><i class="fa fa-code fa-lg"></i></button></a>
             </div>
 
             <div class="titles">
@@ -41,7 +39,7 @@
 
             <div class="notes">
                 <input type="text" placeholder="TITLE NAME" id="title-name">
-                <a class="save-button" href="#">SAVE</a>
+                <a class="save-note-button" href="#">SAVE</a>
                 
                 <button class="circle delete-button"><i class="fa fa-trash fa-lg"></i></button>
 
@@ -53,6 +51,12 @@
     </div>
 
     <script src="/js/app.js"></script>
+
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        editor.session.setMode("ace/mode/javascript");
+    </script>
 
 </body>
 
