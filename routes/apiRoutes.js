@@ -18,7 +18,7 @@ module.exports = function(app) {
       .catch(function(err) {
         console.log(err);
         console.log("user already exist!"); // create an alert message for the user !!!
-        res.sendStatus(500);
+        res.sendStatus(409);
       });
   }); // to close signup
 
@@ -60,7 +60,7 @@ module.exports = function(app) {
       .catch(function(err) {
         console.log(err);
         console.log("Combination of username and pw are not found !");
-        res.sendStatus(500);
+        res.sendStatus(400);
       });
   }); // to close login
 

@@ -24,33 +24,50 @@
           <hr>
       
         
-      </form>
+      </form id="message">
+      <div id="message"></div>
       <script>
+
+        function displayMessage(content) {
+          $("#message").text(content);
+        }
        
-          $("#submit-btn").on("click", function(evt) {
-              evt.preventDefault();
-              var userPassword = $("#password").val();
-              var userName = $("#username").val();
-              // console.log(userPassword);
-              $.ajax({
-                  method: 'POST', 
-                  url: '/api/login',
-                  data: {
-                      username: userName,
-                      password: userPassword,
-                  }
-                
-              })
-              .then(function(response) {
-                console.log(response);
-                console.log('TEST');
-                if (response.success) {
-                  window.location.assign("/index");
+        $("#submit-btn").on("click", function(evt) {
+            evt.preventDefault();
+            var userPassword = $("#password").val();
+            var userName = $("#username").val();
+
+
+            // console.log(userPassword);
+            $.ajax({
+                method: 'POST', 
+                url: '/api/login',
+                data: {
+                    username: userName,
+                    password: userPassword,
                 }
-              })
-              .catch(function(e) {
-                console.error(e, 'Wrong username or password');
-              });
+              
+            })
+            .then(function(response) {
+              console.log(response);
+              console.log('testtest');
+              if (response.success) {
+                window.location.assign("/index");
+              }
+            })
+            .catch(function(e) {
+              switch(e.status) {
+                case 400:
+                  displayMessage("Invalid fields");
+                  break;
+                case 401:
+                  displayMessage("Wrong user or password");
+                  break;
+                default:
+                  displayMessage("Got an error: " + e.status);
+                  break;
+              }
+            });
 
           })
       </script>
