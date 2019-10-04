@@ -25,7 +25,7 @@
 
     renderNotes();
     clearValue();
-  });
+//   });
 
   $(document).on("click", ".back-button", function() {
     backButtonandSave();
@@ -146,7 +146,7 @@
   //     window.location.href = "/index";
   //   });
   // }
-}); // to close document ready function
+// }); // to close document ready function
 
     function renderNotesEditor() {
         if (currentIndex) {
@@ -185,7 +185,7 @@
 
        renderNotesEditor();
     });
-});
+// });
     
     function clearValue() {
         $("#title-name").val("");
