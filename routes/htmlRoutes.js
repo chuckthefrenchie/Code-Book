@@ -42,6 +42,7 @@ module.exports = function(app) {
     });
   });
 
+
   app.get("/snippet", function(req, res) {
     res.header("Cache-Control", "private, no-cache, no-store, must-revalidate");
     res.header("Expires", "-1");
@@ -53,8 +54,23 @@ module.exports = function(app) {
       // session updated
       console.info(req.session.user);
       if (req.session.user) {
+
+        db.User.findOne({
+          where: { id: req.session.user.id },
+          include: [{ model: db.Note }]
+        }).then(user => {
+          console.log(user);
+          // res.sendFile(path.join(__dirname, "../views", "index.html"));
+          res.json(user);
+          // res.sendFile(path.join(__dirname, "../views", "index.html", user);
+        });
+        // If this function gets called, the user alsready has a password
+        // res.sendFile(path.join(__dirname, "../views", "index.html"));
+        // res.send();
+
         // If this function gets called, the user alsready has a password
         res.sendFile(path.join(__dirname, "../views", "snippet.html"));
+
       } else {
         res.status(401).send();
       }
