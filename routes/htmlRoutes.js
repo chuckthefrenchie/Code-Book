@@ -42,6 +42,35 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/user/notes", function(req, res) {
+    res.header("Cache-Control", "private, no-cache, no-store, must-revalidate");
+    res.header("Expires", "-1");
+    res.header("Pragma", "no-cache");
+    req.session.reload(function(err) {
+      if (err) {
+        console.error(err);
+      }
+      // session updated
+      console.info(req.session.user);
+      if (req.session.user) {
+        db.User.findOne({
+          where: { id: req.session.user.id },
+          include: [{ model: db.Note }]
+        }).then(user => {
+          console.log(user);
+          // res.sendFile(path.join(__dirname, "../views", "index.html"));
+          res.json(user);
+          // res.sendFile(path.join(__dirname, "../views", "index.html", user);
+        });
+        // If this function gets called, the user alsready has a password
+        // res.sendFile(path.join(__dirname, "../views", "index.html"));
+        // res.send();
+      } else {
+        res.status(401).send();
+      }
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
