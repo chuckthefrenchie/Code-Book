@@ -20,7 +20,7 @@ module.exports = function(app) {
         console.log("user already exist!"); // create an alert message for the user !!!
         res.sendStatus(409);
       });
-  });
+  }); // to close signup
 
   // when user hit the submit button on Login page his pw and login should be check with information in database and he/she should be redirected to the main page
   app.post("/api/login", function(req, res) {
@@ -56,13 +56,58 @@ module.exports = function(app) {
         } else {
           res.status(401).send();
         }
-
-        // res.sendStatus(200);
       })
       .catch(function(err) {
         console.log(err);
         console.log("Combination of username and pw are not found !");
         res.sendStatus(400);
       });
+  }); // to close login
+
+  ///// NOTES  !!!! ////
+
+  app.get("/api/user/notes", (req, res) => {
+    var userId = req.session.user.id;
+
+    db.User.findOne({
+      where: { id: userId },
+      include: [{ model: db.Note }]
+    }).then(user => {
+      res.json(user.Notes);
+    }); // to close then
+  }); // to close app.get
+
+  // POST route for saving a new note
+  app.post("/api/user/notes", function(req, res) {
+    console.log(req.body);
+    db.Note.create({
+      title: req.body.title,
+      body: req.body.body,
+      UserId: req.session.user.id
+    }).then(function(dbNote) {
+      res.json(dbNote);
+    });
   });
-};
+
+  // DELETE route for deleting posts
+  app.delete("/api/notes/:id", function(req, res) {
+    db.Note.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbNote) {
+      res.json(dbNote);
+    });
+  });
+
+  // PUT route for updating posts
+  app.put("/api/notes", function(req, res) {
+    db.Note.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbNote) {
+      res.json(dbNote);
+    });
+  });
+}; // to close the module
