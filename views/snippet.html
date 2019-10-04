@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Font Awesome/ Google Font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Quicksand&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <title>Black Book- Code</title>
+
+</head>
+<body>
+
+        <div class="container">
+            <div class="app-container">
+                <div class="icons">
+                    <button class="circle back-button"><i class="fa fa-arrow-left fa-md"></i></button>
+                    <a href="/index"><button class="circle add-note-button"><i class="fa fa-plus fa-lg"></i></button></a>
+                    <a href="/snippet"><button class="circle add-code-button"><i class="fa fa-code fa-lg"></i></button></a>
+                </div>
+    
+                <div class="titles">
+                    <div class="itemsWrapper">
+                        <h2 class="notes-nav">CODE</h2>
+                        <ul class="items"></ul>
+                    </div>
+                </div>
+    
+                <div class="notes">
+                    <input type="text" placeholder="TITLE NAME" id="title-name">
+                    <a class="save-button" href="#">SAVE</a>
+                    
+                    <button class="circle delete-button"><i class="fa fa-trash fa-lg"></i></button>
+    
+                    <hr>
+                    <!-- <textarea placeholder="Write notes here" id="write-notes"></textarea> -->
+                    
+                    <div id="editor"></div>
+                    
+                </div>
+    
+            </div>
+        </div>
+    
+        <script src="/js/snippets.js"></script>
+        <script src="/js/ace.js" type="text/javascript" charset="utf-8"></script>
+    
+        <script>
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/twilight");
+            editor.session.setMode("ace/mode/javascript");
+        </script>
+    
+    </body>
+    
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
