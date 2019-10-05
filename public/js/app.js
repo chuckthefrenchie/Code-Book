@@ -1,10 +1,8 @@
 // import { json } from "sequelize/types";
 
-    //all notes get pushed into here
-    let notes = [];
+let notes = [];
 
-    //the value of the notes in the editor
-    let currentIndex = null;
+let currentIndex = null;
 
     $(".back-button").hide();
     $(".update-button").hide();
@@ -26,6 +24,28 @@
     renderNotes();
     clearValue();
 
+    // function renderNotesEditor() {
+       
+    //     var title = $("#title-name").val();
+    //     var content = $("#write-notes").val();
+        
+    //     const newNote = {
+    //         title,
+    //         content
+    //     }
+
+    //     notes[currentIndex] = newNote
+
+    //     if (currentIndex === null) {
+    //         return;
+    //         alert("Hey Im null")
+    //     }else {
+    //         notes.push(newNote)
+    //     }
+    // }
+
+    // renderNotesEditor();
+
 
   $(document).on("click", ".back-button", function() {
     backButtonandSave();
@@ -34,21 +54,6 @@
   $(document).on("click", ".add-code-button", function() {
     $(".notes").hide();
   });
-
-  function renderNotes() {
-    $(".items").html("");
-    for (var i = 0; i < notes.length; i++) {
-      $(".items").append(
-        "<li><textarea class=\"items-input\" data-index=\"" +
-          i +
-          "\">" +
-          notes[i].title +
-          "\n" +
-          notes[i].content +
-          "</textarea></li>"
-      );
-    }
-  }
 
 
   //// SENDING INFO TO BACK END
@@ -164,6 +169,7 @@
      
             notes.push(note);
             renderNotes();
+            // renderNotesEditor();
             clearValue();  
 
     })
@@ -178,7 +184,7 @@
         console.log(notes[index].content)
         $(".delete-button").show();
 
-       renderNotesEditor();
+    //    renderNotesEditor();
     });
 // });
     
@@ -188,5 +194,7 @@
     }
 
   
+
+    
   
 

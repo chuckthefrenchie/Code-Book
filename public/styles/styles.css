@@ -1,4 +1,4 @@
-html, body, textarea {
+html, body, textarea, h2, h3, h4, p {
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
@@ -16,6 +16,18 @@ textarea {
 h2 {
   color: rgb(136, 132, 132);
   font-size: 20px;
+}
+
+h5 {
+  font-size: 9px;
+  text-align: center;
+  width: 85%;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+  color: #92929D;
 }
 
 * {
@@ -79,7 +91,6 @@ h2 {
   border-right: none;
   border-left: none;
   width: 92%;
-  /* height: 4em; */
   height: 5em;
   resize: none; 
   font-family: 'Quicksand', sans-serif;
@@ -167,7 +178,7 @@ hr {
    margin-left: 55px;
 }
 
-/* Landing Page */
+/* Sign up page */
 
 .landing-page-container {
   max-width: 1100px;
@@ -183,13 +194,37 @@ hr {
   margin: auto;
 }
 
+.right {
+  height: 412px;
+  width: 360px;
+  background-color: #ffffff;
+  border-radius: 25px;
+}
 
-.right a {
+#password, #username {
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 12px;
+  background-color: white;
+  border: solid .5px lightgrey;
+  color: black;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
+  width: 320px;
+  height: 38px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #F1F1F5;
+}
+
+.right-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .left h3 {
@@ -201,10 +236,22 @@ hr {
   background-color: #021e63;
 }
 
-img {
-  width: 650px;
-  height: auto;
+.logo {
+    width: 230px;
+    height: 54px;
+    position: relative;
+    top: -67px;
+    left: 56px;
 }
+
+#sign-up-header {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 25px;
+  font-family: 'Poppins', sans-serif;
+}
+
 
 .landing-page-container {
  display: flex;
@@ -213,16 +260,9 @@ img {
  flex-wrap: wrap;
 }
 
-.sign-up, .log-in {
-  padding: 10px;
-  font-size: 24px;
-  background-color: white;
-  color: black;
-  text-decoration: none;
-}
 
 .landing-page-background {
-  background-color: black;
+  background-color: #696974;
 }
 
 .save-button, .save-note-button {
@@ -247,6 +287,29 @@ img {
   top: 15px;
 }
 
+#submit-btn {
+  background-color: #0062FF;
+  color: #ffffff;
+  height: 38px;
+  width: 320px;
+  border-radius: 12px;
+  margin-bottom: 55px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+
+.right a {
+color: #0062FF;
+/* text-decoration: none; */
+font-size: 12px;
+font-family: 'Poppins', sans-serif;
+}
+
+.redirect {
+  font-size: 12px;
+  color: #0062FF;
+  font-family: 'Poppins', sans-serif;
+}
 
 /* Code Snippet */
 
@@ -263,4 +326,11 @@ padding: 0;
 font-family: 'Quicksand', sans-serif;
 font-family: 'Quicksand', sans-serif;
 margin-top: 15px;
+}
+
+
+@media only screen and (max-width: 909px) {
+  .logo {
+    visibility: hidden;
+  }
 }

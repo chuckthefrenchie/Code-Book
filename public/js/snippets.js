@@ -60,7 +60,7 @@ $(document).ready(function () {
         $(".delete-button").show();
 
 
-       renderNotesEditor();
+    //    renderNotesEditor();
        
     });
 
