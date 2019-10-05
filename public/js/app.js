@@ -14,7 +14,6 @@ $(document).on("click", ".delete-button", function() {
   deleteNote(notes[currentIndex]);
   notes.splice(currentIndex, 1);
   renderNotes(); 
-
   clearValue(); 
 });
 
@@ -27,11 +26,6 @@ function renderNotes() {
 
 renderNotes();
 clearValue();
-// });
-
-$(document).on("click", ".back-button", function() {
-  backButtonandSave();
-});
 
 $(document).on("click", ".log-out", function() {
   window.location.assign("/");
@@ -63,12 +57,6 @@ var bodyInput = $("#write-notes");
 var noteId;
 var updating = false;
 
-//   if (url.indexOf("?post_id=") !== -1) {
-//     noteId = url.split("=")[1];
-//     getNoteData(noteId);
-//   }
-
-// getNoteData(noteId);
 getNoteData();
 
 $(".save-button").on("click", function handleFormSubmit(event) {
@@ -112,34 +100,11 @@ function getNoteData() {
   fetch("http://localhost:3000/api/user/notes")
     .then(res => res.json())
     .then(data => data.map(item => notes.push(item)))
-  // .then(data => {
-    //     titleInput.val(data.title);
-  //     bodyInput.val(data.body);
-    //     // If we have a post with this id, set a flag for us to know to update the post
-    //     // when we hit submit
-    //     updating = true;
-  // })
+
     .then(renderNotes)
     .catch(err => console.error(err));
 }
 
-///saving the note
-
-// Submits a new post and brings user to blog page upon completion
-// eslint-disable-next-line no-unused-vars
-// function submitNote(note) {
-//   // $.post("/api/notes/", Note, function() {
-//   //   window.location.reload();
-//   // });
-//   console.log(note);
-//   fetch("http://localhost:3000/api/user/notes", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(note)
-//   })
-//     .then(res => res.json())
-//     .then(renderNotes);
-// }
 
 function submitNote(note) {
   $.ajax({
@@ -162,12 +127,6 @@ function deleteNote(note) {
 }
 // }); // to close document ready function
 
-function renderNotesEditor() {
-  if (currentIndex) {
-    notes[currentIndex];
-  }
-  renderNotesEditor();
-}
 
 //notes
 $(".save-note-button").on("click", function (event) {
@@ -198,12 +157,9 @@ $(document).on("click", ".items-input", function () {
   currentIndex = index;       
   $("#title-name").val(notes[index].title);
   $("#write-notes").val(notes[index].body);
-  console.log(notes[index].body);
   $(".delete-button").show();
-
-  renderNotesEditor();
 });
-// });
+
 
 function clearValue() {
   $("#title-name").val("");

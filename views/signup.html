@@ -1,64 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <title>Sign up</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/styles.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Poppins|Roboto:100i,400|Quicksand&display=swap"
+        rel="stylesheet">
 </head>
-<body>
-    <form>
-        <div class="container">
-          <h1>Register</h1>
-          <p>Please fill in this form to create an account.</p>
-          <hr>
-      
-          <label for="username"><b>Username</b></label>
-          <input type="text" id="username" placeholder="Enter Username" name="username" required>
-      
-          <label for="psw"><b>Password</b></label>
-          <input id = "password" type="password" placeholder="Enter Password" name="psw" required>
 
-          <button id="submit-btn" type="submit">Submit</button>
-          <hr>
-      
-        <div class="container signin">
-          <p>Already have an account? <a href="/login">Sign in</a>.</p> 
+<body class="landing-page-background">
+
+    <section class="page">
+
+        <div class="landing-page-container">
+            <div class="left">
+                <video autoplay loop muted playsinline width="549.33" height="412">
+                    <source src="assets/dasha-login.mp4" type="video/mp4" alt="animated">
+                </video>
+            </div>
+
+            <div class="right">
+                <img class="logo" src="assets/logo.png">
+                <div class="right-content">
+                    <h3 id="sign-up-header">Sign Up for your account</h3>
+
+                    <input type="text" id="username" placeholder="Your Username" name="username" required>
+
+                    <input id="password" type="password" placeholder="Create Password" name="psw" required>
+
+                    <h5>By signing up you confirm that you are ready to use the app and will cut the developers some
+                        gosh darn slack.</h5>
+
+                    <button id="submit-btn" type="submit">Register</button>
+                    <p class="redirect">Already have an account? <a class="login-link" href="/login">Sign in</a>.</p>
+                </div>
+            </div>
         </div>
-      </form>
-      <div id="message"></div>
-      <script>
-         function displayMessage(content) {
-          $("#message").text(content);
-        }
-          $("#submit-btn").on("click", function(evt) {
-              evt.preventDefault();
-              var userPassword = $("#password").val();
-              $.ajax({
-                  method: 'POST', 
-                  url: '/api/signup',
-                  data: {
-                      username: $("#username").val(),
-                      password: userPassword,
-                  }
-              })
-              .then(function() {
-                console.log('TEST')
-                window.location.href = "/login"
-              })  .catch(function(e) {
-              switch(e.status) {
-                case 400:
-                  displayMessage("Invalid fields");
-                  break;
-                default:
-                  displayMessage("Username already exhists!");
-                  break;
-              }
-            });
+    </section>
+    <div id="message"></div>
 
-          })
-      </script>
+    <script>
+        function displayMessage(content) {
+            $("#message").text(content);
+        }
+        $("#submit-btn").on("click", function (evt) {
+            evt.preventDefault();
+            var userPassword = $("#password").val();
+            $.ajax({
+                method: 'POST',
+                url: '/api/signup',
+                data: {
+                    username: $("#username").val(),
+                    password: userPassword,
+                }
+            })
+                .then(function () {
+                    console.log('TEST')
+                    window.location.href = "/login"
+                }).catch(function (e) {
+                    switch (e.status) {
+                        case 400:
+                            displayMessage("Invalid fields");
+                            break;
+                        default:
+                            displayMessage("Username already exists!");
+                            break;
+                    }
+                });
+        })
+    </script>
 </body>
+
 </html>

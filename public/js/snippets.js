@@ -13,7 +13,8 @@ $(document).ready(function () {
     $(document).on("click", ".delete-button", function() {
         notes.splice(currentIndex, 1);
         renderNotes(); 
-        clearValue(); 
+        $("#title-name").val(""); 
+        editor.setValue("");
     })
 
     function renderNotes() {
@@ -57,9 +58,6 @@ $(document).ready(function () {
         
         
         $(".delete-button").show();
-
-
-       renderNotesEditor();
        
     });
 

@@ -28,7 +28,6 @@ module.exports = function(app) {
     db.User.findOne({ where: { username: data.username } })
       // eslint-disable-next-line prettier/prettier
       .then(function (user) {
-        // console.log("USER PRINT", user.dataValues);
         // eslint-disable-next-line no-unused-vars
         var hashedPw = passwordHash.generate(req.body.password);
         // console.log("HASHED PW!!!", hashedPw);
@@ -48,11 +47,7 @@ module.exports = function(app) {
             res.send({ success: true });
             // session saved
           });
-          // console.log("works");
-          // res.send("works!");
-
-          // res.send(JSON.stringify({ success: true }));
-          // res.send("works");
+        
         } else {
           res.status(401).send();
         }
