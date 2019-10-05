@@ -189,10 +189,7 @@
 
         submitNote({
           title: title,
-          body: content,
-          user: {
-            id: window.opener.userId
-          }
+          body: content
         }); 
         
         clearValue();  
