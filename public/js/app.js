@@ -25,33 +25,7 @@ let currentIndex = null;
 
     renderNotes();
     clearValue();
-<<<<<<< HEAD
-
-    // function renderNotesEditor() {
-       
-    //     var title = $("#title-name").val();
-    //     var content = $("#write-notes").val();
-        
-    //     const newNote = {
-    //         title,
-    //         content
-    //     }
-
-    //     notes[currentIndex] = newNote
-
-    //     if (currentIndex === null) {
-    //         return;
-    //         alert("Hey Im null")
-    //     }else {
-    //         notes.push(newNote)
-    //     }
-    // }
-
-    // renderNotesEditor();
-
-=======
   // });
->>>>>>> 1bd4491a5d65aee6b3ff536439b73a36d3bdf49e
 
   $(document).on("click", ".back-button", function() {
     backButtonandSave();
@@ -66,8 +40,6 @@ let currentIndex = null;
     $(".notes").hide();
   });
 
-<<<<<<< HEAD
-=======
   function renderNotes() {
     $(".items").html("");
     for (var i = 0; i < notes.length; i++) {
@@ -83,7 +55,6 @@ let currentIndex = null;
     }
   }
 
->>>>>>> 1bd4491a5d65aee6b3ff536439b73a36d3bdf49e
 
   //// SENDING INFO TO BACK END
 
@@ -170,10 +141,8 @@ let currentIndex = null;
   //     .then(res => res.json())
   //     .then(renderNotes);
   // }
-<<<<<<< HEAD
 // }); // to close document ready function
 
-=======
 
   function submitNote(note) {
     $.ajax({
@@ -195,7 +164,6 @@ let currentIndex = null;
     });
   }
 // }); // to close document ready function
->>>>>>> 1bd4491a5d65aee6b3ff536439b73a36d3bdf49e
 
     
  //notes
@@ -210,12 +178,10 @@ let currentIndex = null;
             content
         };
      
-<<<<<<< HEAD
             notes.push(note);
             renderNotes();
             // renderNotesEditor();
             clearValue();  
-=======
         notes.push(note);
         renderNotes();
 
@@ -225,7 +191,6 @@ let currentIndex = null;
         }); 
         
         clearValue();  
->>>>>>> 1bd4491a5d65aee6b3ff536439b73a36d3bdf49e
 
     })
    
