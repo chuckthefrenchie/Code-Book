@@ -25,13 +25,13 @@ app.use(
 );
 
 // Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
+// app.engine(
+//   "handlebars",
+//   exphbs({
+//     defaultLayout: "main"
+//   })
+// );
+// app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
