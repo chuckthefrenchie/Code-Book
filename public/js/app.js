@@ -9,20 +9,23 @@ let currentIndex = null;
     $(".delete-button").hide();
 
     $(document).on("click", ".delete-button", function() {
+        deleteNote(notes[currentIndex]);
         notes.splice(currentIndex, 1);
         renderNotes(); 
+        
         clearValue(); 
     })
      
     function renderNotes() {
         $(".items").html("");
         for (var i = 0; i < notes.length; i++) {
-            $(".items").append('<li><textarea class="items-input" data-index="' + i + '">' + notes[i].title + "\n" + notes[i].content.slice(0, 11) + '...</textarea></li>')
+            $(".items").append('<li><textarea class="items-input" data-index="' + i + '">' + notes[i].title + "\n" + notes[i].body.slice(0, 11) + '...</textarea></li>')
         }
     }
 
     renderNotes();
     clearValue();
+<<<<<<< HEAD
 
     // function renderNotesEditor() {
        
@@ -46,15 +49,41 @@ let currentIndex = null;
 
     // renderNotesEditor();
 
+=======
+  // });
+>>>>>>> 1bd4491a5d65aee6b3ff536439b73a36d3bdf49e
 
   $(document).on("click", ".back-button", function() {
     backButtonandSave();
   });
 
+  $(document).on("click", ".log-out", function() {
+      window.location.assign("/");
+  });
+
+
   $(document).on("click", ".add-code-button", function() {
     $(".notes").hide();
   });
 
+<<<<<<< HEAD
+=======
+  function renderNotes() {
+    $(".items").html("");
+    for (var i = 0; i < notes.length; i++) {
+      $(".items").append(
+        "<li><textarea class=\"items-input\" data-index=\"" +
+          i +
+          "\">" +
+          notes[i].title +
+          "\n" +
+          notes[i].body +
+          "</textarea></li>"
+      );
+    }
+  }
+
+>>>>>>> 1bd4491a5d65aee6b3ff536439b73a36d3bdf49e
 
   //// SENDING INFO TO BACK END
 
@@ -128,31 +157,45 @@ let currentIndex = null;
 
   // Submits a new post and brings user to blog page upon completion
   // eslint-disable-next-line no-unused-vars
-  function submitNote(note) {
-    // $.post("/api/notes/", Note, function() {
-    //   window.location.reload();
-    // });
-    console.log(note);
-    fetch("http://localhost:3000/api/user/notes", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(note)
-    })
-      .then(res => res.json())
-      .then(renderNotes);
-  }
-
   // function submitNote(note) {
-  //   $.ajax({
+  //   // $.post("/api/notes/", Note, function() {
+  //   //   window.location.reload();
+  //   // });
+  //   console.log(note);
+  //   fetch("http://localhost:3000/api/user/notes", {
   //     method: "POST",
-  //     url: "/api/notes",
-  //     data: note
-  //   }).then(function() {
-  //     window.location.href = "/index";
-  //   });
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(note)
+  //   })
+  //     .then(res => res.json())
+  //     .then(renderNotes);
   // }
+<<<<<<< HEAD
 // }); // to close document ready function
 
+=======
+
+  function submitNote(note) {
+    $.ajax({
+      method: "POST",
+      url: "/api/user/notes",
+      data: note
+    }).then(function(response) {
+      console.log(response)
+      window.location.href = "/index";
+    });
+  }
+  function deleteNote(note) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/notes/" + note.id
+    }).then(function(response) {
+      console.log(response)
+      window.location.href = "/index";
+    });
+  }
+// }); // to close document ready function
+>>>>>>> 1bd4491a5d65aee6b3ff536439b73a36d3bdf49e
 
     
  //notes
@@ -167,10 +210,22 @@ let currentIndex = null;
             content
         };
      
+<<<<<<< HEAD
             notes.push(note);
             renderNotes();
             // renderNotesEditor();
             clearValue();  
+=======
+        notes.push(note);
+        renderNotes();
+
+        submitNote({
+          title: title,
+          body: content
+        }); 
+        
+        clearValue();  
+>>>>>>> 1bd4491a5d65aee6b3ff536439b73a36d3bdf49e
 
     })
    
@@ -180,8 +235,8 @@ let currentIndex = null;
         const index = $(this).data("index");
         currentIndex = index;       
         $("#title-name").val(notes[index].title);
-        $("#write-notes").val(notes[index].content);
-        console.log(notes[index].content)
+        $("#write-notes").val(notes[index].body);
+        console.log(notes[index].body)
         $(".delete-button").show();
 
     //    renderNotesEditor();
