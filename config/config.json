@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "abc12345",
+    "password": "",
     "database": "blackBookApp",
     "host": "localhost",
     "dialect": "mysql"

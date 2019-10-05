@@ -28,7 +28,11 @@
           <p>Already have an account? <a href="/login">Sign in</a>.</p> 
         </div>
       </form>
+      <div id="message"></div>
       <script>
+         function displayMessage(content) {
+          $("#message").text(content);
+        }
           $("#submit-btn").on("click", function(evt) {
               evt.preventDefault();
               var userPassword = $("#password").val();
@@ -43,7 +47,16 @@
               .then(function() {
                 console.log('TEST')
                 window.location.href = "/login"
-              });
+              })  .catch(function(e) {
+              switch(e.status) {
+                case 400:
+                  displayMessage("Invalid fields");
+                  break;
+                default:
+                  displayMessage("Username already exhists!");
+                  break;
+              }
+            });
 
           })
       </script>
