@@ -1,5 +1,5 @@
 var db = require("../models");
-// hasing the pw before sending the onformation to db
+// hashing the pw before sending the information to db
 
 var passwordHash = require("password-hash");
 
