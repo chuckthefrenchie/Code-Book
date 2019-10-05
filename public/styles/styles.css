@@ -12,7 +12,6 @@ textarea {
   margin-top: 15px;
 }
 
-
 h2 {
   color: rgb(136, 132, 132);
   font-size: 20px;
@@ -61,7 +60,7 @@ h5 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgba(0, 0, 0, .9);
+  background-color: #696974;
 }
 
 .circle {
@@ -75,7 +74,7 @@ h5 {
 
 .delete-button {
   font-size: 18px;
-  background-color: black;
+  background-color: #696974;
   color: white;
   text-decoration: none;
   position: fixed;
@@ -116,7 +115,6 @@ h5 {
 .notes-nav {
   border: none;
   padding: 10px;
-
   width: 90%;
   margin-left: 11px;
   border: none;
@@ -186,7 +184,6 @@ hr {
   overflow: hidden;
   height: 100vh;
 }
-
 
 .right, .left{
   justify-content: center;
@@ -260,7 +257,6 @@ hr {
  flex-wrap: wrap;
 }
 
-
 .landing-page-background {
   background-color: #696974;
 }
@@ -268,7 +264,7 @@ hr {
 .save-button, .save-note-button {
   padding: 7px;
   font-size: 18px;
-  background-color: black;
+  background-color: #696974;
   color: white;
   text-decoration: none;
   position: fixed;
@@ -300,7 +296,6 @@ hr {
 
 .right a {
 color: #0062FF;
-/* text-decoration: none; */
 font-size: 12px;
 font-family: 'Poppins', sans-serif;
 }
@@ -312,7 +307,6 @@ font-family: 'Poppins', sans-serif;
 }
 
 /* Code Snippet */
-
 
 #editor {
 position: absolute;
@@ -328,7 +322,6 @@ font-family: 'Quicksand', sans-serif;
 font-family: 'Quicksand', sans-serif;
 margin-top: 15px;
 }
-
 
 @media only screen and (max-width: 909px) {
   .logo {

@@ -1,75 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Log In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/styles.css">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Poppins|Roboto:100i,400|Quicksand&display=swap"
+    rel="stylesheet">
 </head>
-<body>
-    <form>
-        <div class="container">
-          <h1>Already have an account?</h1>
-          <p>Please enter your username and password:</p>
-          <hr>
-      
-          <label for="username"><b>Username</b></label>
-          <input type="text" id="username" placeholder="Enter Username" name="username" required>
-      
-          <label for="psw"><b>Password</b></label>
-          <input id = "password" type="password" placeholder="Enter Password" name="psw" required>
-      
-          <button id="submit-btn" type="submit">Submit</button>
-          <hr>
-      
-        
-      </form id="message">
-      <div id="message"></div>
-      <script>
 
-        function displayMessage(content) {
-          $("#message").text(content);
+<body class="landing-page-background">
+
+  <section class="page">
+
+    <div class="landing-page-container">
+      <div class="left">
+        <video autoplay loop muted playsinline width="549.33" height="412">
+          <source src="assets/login2.mp4" type="video/mp4" alt="animated">
+        </video>
+      </div>
+
+      <div class="right">
+        <img class="logo" src="assets/logo.png">
+        <div class="right-content">
+          <h3 id="sign-up-header">Already have an account?</h3>
+
+          <input type="text" id="username" placeholder="Your Username" name="username" required>
+
+          <input id="password" type="password" placeholder="Create Password" name="psw" required>
+
+          <h5>Login to Code Book, the minimalist notes platformfor developers, programmers and engineers.</h5>
+
+          <button id="submit-btn" type="submit">Login</button>
+          <p class="redirect">Don't have a Code Book account? <a class="login-link" href="/login">Register Here</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </form id="message">
+  <div id="message"></div>
+  <script>
+
+    function displayMessage(content) {
+      $("#message").text(content);
+    }
+
+    $("#submit-btn").on("click", function (evt) {
+      evt.preventDefault();
+      var userPassword = $("#password").val();
+      var userName = $("#username").val();
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/login',
+        data: {
+          username: userName,
+          password: userPassword,
         }
-       
-        $("#submit-btn").on("click", function(evt) {
-            evt.preventDefault();
-            var userPassword = $("#password").val();
-            var userName = $("#username").val();
-
-
-            // console.log(userPassword);
-            $.ajax({
-                method: 'POST', 
-                url: '/api/login',
-                data: {
-                    username: userName,
-                    password: userPassword,
-                }
-              
-            })
-            .then(function(response) {
-              console.log(response);
-              console.log('testtest');
-              if (response.success) {
-                window.location.assign("/index");
-              }
-            })
-            .catch(function(e) {
-              switch(e.status) {
-                case 400:
-                  displayMessage("Invalid fields");
-                  break;
-                case 401:
-                  displayMessage("Wrong user or password");
-                  break;
-                default:
-                  displayMessage("Got an error: " + e.status);
-                  break;
-              }
-            });
-
-          })
-      </script>
+      })
+        .then(function (response) {
+          console.log(response);
+          console.log('testtest');
+          if (response.success) {
+            window.location.assign("/index");
+          }
+        })
+        .catch(function (e) {
+          switch (e.status) {
+            case 400:
+              displayMessage("Invalid fields");
+              break;
+            case 401:
+              displayMessage("Wrong user or password");
+              break;
+            default:
+              displayMessage("Got an error: " + e.status);
+              break;
+          }
+        });
+    })
+  </script>
 </body>
-</html> 
+
+</html>

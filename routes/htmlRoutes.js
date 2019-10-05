@@ -64,9 +64,6 @@ module.exports = function(app) {
           res.json(user);
           // res.sendFile(path.join(__dirname, "../views", "index.html", user);
         });
-        // If this function gets called, the user alsready has a password
-        // res.sendFile(path.join(__dirname, "../views", "index.html"));
-        // res.send();
 
         // If this function gets called, the user alsready has a password
         res.sendFile(path.join(__dirname, "../views", "snippet.html"));
