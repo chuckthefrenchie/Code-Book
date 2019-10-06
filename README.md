@@ -2,10 +2,6 @@
 
 A note taking app with a built in code editor to help developers stay organized with their notes and code.
 
-![Register Page](public/assets/register.png)
-![Notes Page](public/assets/notes.png)
-
-
 ## Deployed to Heroku
 Check it out here:
 [Code Book](https://code-book-app.herokuapp.com/)
