@@ -97,7 +97,7 @@ $(".save-button").on("click", function handleFormSubmit(event) {
 // }
 
 function getNoteData() {
-  fetch("http://localhost:3000/api/user/notes")
+  fetch("/api/user/notes")
     .then(res => res.json())
     .then(data => data.map(item => notes.push(item)))
 
