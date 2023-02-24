@@ -22,7 +22,7 @@
     "passport-local": "^1.0.0",
     "password-hash": "^1.2.2",
     "path": "^0.12.7",
-    "sequelize": "^5.8.6",
+    "sequelize": "^6.29.0",
     "sequelize-heroku": "^2.1.4"
   },
   "devDependencies": {
